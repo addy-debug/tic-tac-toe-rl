@@ -60,10 +60,11 @@ st.markdown("""
     
     .stMarkdown h2 {
         color: #00d4ff !important;
-        font-size: 2rem !important;
-        margin-top: 1.5rem !important;
+        font-size: 1.8rem !important;
+        margin-top: 0 !important;
         margin-bottom: 1.5rem !important;
         text-shadow: 0 0 10px rgba(0, 212, 255, 0.3) !important;
+        font-weight: 700 !important;
     }
     
     .stMarkdown h3 {
@@ -80,7 +81,10 @@ st.markdown("""
         padding: 2rem !important;
         box-shadow: 0 0 30px rgba(0, 212, 255, 0.2) !important;
         backdrop-filter: blur(10px) !important;
-        margin-bottom: 2rem !important;
+        margin-bottom: 0 !important;
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
     }
     
     /* Button Base Styling */
@@ -346,8 +350,7 @@ st.markdown("""<h1>🎮 TIC TAC TOE AI 🤖</h1>""", unsafe_allow_html=True)
 col1, col2 = st.columns([1, 1], gap="large")
 
 with col1:
-    st.markdown("""<div class="card">""", unsafe_allow_html=True)
-    st.markdown("""<h2>⚡ PLAY AGAINST AI</h2>""", unsafe_allow_html=True)
+    st.markdown("""<div class="card"><h2>⚡ PLAY AGAINST AI</h2>""", unsafe_allow_html=True)
     
     # Game board with simple layout
     board_cols = []
@@ -432,8 +435,7 @@ with col1:
 
 
 with col2:
-    st.markdown("""<div class="card">""", unsafe_allow_html=True)
-    st.markdown("""<h2>🧠 HOW IT WORKS</h2>""", unsafe_allow_html=True)
+    st.markdown("""<div class="card"><h2>🧠 HOW IT WORKS</h2>""", unsafe_allow_html=True)
     
     st.markdown("""
     ### Q-Learning AI
