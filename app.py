@@ -33,6 +33,20 @@ st.markdown("""
         background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
     }
     
+    /* Hide hamburger menu and header */
+    header {
+        display: none !important;
+    }
+    
+    [data-testid="stHeader"] {
+        display: none !important;
+    }
+    
+    /* Hide the three bars menu */
+    .stToolbar {
+        display: none !important;
+    }
+    
     /* Header Styling */
     .stMarkdown h1 {
         color: #00d4ff !important;
@@ -67,16 +81,6 @@ st.markdown("""
         box-shadow: 0 0 30px rgba(0, 212, 255, 0.2) !important;
         backdrop-filter: blur(10px) !important;
         margin-bottom: 2rem !important;
-    }
-    
-    /* Game Board Styling */
-    .game-board-container {
-        background: linear-gradient(135deg, rgba(22, 33, 62, 0.9) 0%, rgba(26, 26, 46, 0.9) 100%) !important;
-        border: 2px solid #00d4ff !important;
-        border-radius: 20px !important;
-        padding: 2rem !important;
-        box-shadow: 0 0 20px rgba(0, 212, 255, 0.15) !important;
-        margin: 2rem 0 !important;
     }
     
     /* Button Base Styling */
@@ -345,15 +349,16 @@ with col1:
     st.markdown("""<div class="card">""", unsafe_allow_html=True)
     st.markdown("""<h2>⚡ PLAY AGAINST AI</h2>""", unsafe_allow_html=True)
     
-    # Game board
-    st.markdown("""<div class="game-board-container">""", unsafe_allow_html=True)
+    # Game board with simple layout
+    board_cols = []
+    for row_idx in range(3):
+        row = st.columns(3)
+        board_cols.append(row)
     
-    board_rows = st.columns(3)
     for i in range(3):
-        row_cells = st.columns(3)
         for j in range(3):
             idx = i * 3 + j
-            with row_cells[j]:
+            with board_cols[i][j]:
                 cell_value = st.session_state.human_game.board[idx]
                 
                 # Display X and O
@@ -396,8 +401,6 @@ with col1:
                             st.session_state.human_game.make_move(best_move, "O")
                     
                     st.rerun()
-    
-    st.markdown("""</div>""", unsafe_allow_html=True)
     
     # Game Status
     st.markdown("""<br>""", unsafe_allow_html=True)
