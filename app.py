@@ -65,6 +65,8 @@ st.markdown("""
         margin-bottom: 1.5rem !important;
         text-shadow: 0 0 10px rgba(0, 212, 255, 0.3) !important;
         font-weight: 700 !important;
+        border-bottom: none !important;
+        padding-bottom: 0 !important;
     }
     
     .stMarkdown h3 {
