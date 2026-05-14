@@ -159,6 +159,9 @@ st.markdown("""
     /* Divider */
     hr {
         border-color: rgba(0, 212, 255, 0.2) !important;
+        width: 60% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
     
 </style>
